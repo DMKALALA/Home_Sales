@@ -1,86 +1,76 @@
-🏡 Home Sales – Module 22 Challenge
-In this challenge, you’ll apply your SparkSQL knowledge to analyze key metrics in a home sales dataset. You’ll work with Spark to create temporary views, perform data partitioning, utilize caching, and verify uncaching within your PySpark environment.
+# 🏡 Home Sales – Module 22 Challenge
 
-🔧 Setup Instructions
-Create a New Repository
-Name it Home_Sales. This should be a separate repository and not added to any existing one.
+This project uses **SparkSQL** and **PySpark** to analyze a home sales dataset, calculate key metrics, and apply performance optimization techniques such as caching and partitioning.
 
-Clone the Repository
-Clone your new repository to your local machine.
+---
 
-Push Your Changes
-After completing the challenge, push your updated files to GitHub.
+## 🔧 Setup Instructions
 
-📘 Instructions
-Rename the notebook file Home_Sales_starter_code.ipynb to Home_Sales.ipynb.
+1. **Create a New Repository**  
+   - Name the repo `Home_Sales`. Do **not** use an existing repository.
 
-Import the necessary PySpark SQL libraries.
+2. **Clone the Repository**  
+   - Clone the new repository to your local machine.
 
-Load the home_sales_revised.csv file from the provided AWS S3 bucket into a PySpark DataFrame.
+3. **Push Changes to GitHub**  
+   - After completing your work, push all changes to your GitHub repo.
 
-Create a temporary view named home_sales.
+---
 
-📊 Analytical Tasks (Use SparkSQL)
-Average Price of 4-Bedroom Homes by Year
+## 📘 Assignment Steps
 
-Compute the yearly average price of homes with four bedrooms.
+- Rename `Home_Sales_starter_code.ipynb` to `Home_Sales.ipynb`
+- Import required PySpark SQL functions
+- Load `home_sales_revised.csv` from the AWS S3 bucket into a DataFrame
+- Create a temporary view called `home_sales`
 
-Round the results to two decimal places.
+---
 
-Average Price of Homes (3 Bed / 3 Bath) by Year Built
+## 📊 SparkSQL Analysis Tasks
 
-Find the average price for each year homes were built with 3 bedrooms and 3 bathrooms.
+1. **Average Price for 4-Bedroom Homes by Year**
+   - Use SparkSQL to calculate the average price of four-bedroom homes sold each year.
+   - Round the results to 2 decimal places.
 
-Round to two decimal places.
+2. **Average Price of 3 Bed / 3 Bath Homes by Year Built**
+   - Filter homes with 3 bedrooms and 3 bathrooms.
+   - Group by year built and calculate average price (rounded to 2 decimal places).
 
-Average Price for Specific Criteria by Year Built
+3. **Average Price for Homes with Specific Features**
+   - Filter for homes with:
+     - 3 bedrooms
+     - 3 bathrooms
+     - 2 floors
+     - At least 2,000 sqft
+   - Group by year built and compute average price.
 
-Calculate the average price for homes with:
+4. **Average Price by View Rating (≥ $350,000)**
+   - Compute the average price of homes per view rating where the price is ≥ $350,000.
+   - Record and compare query run time.
 
-3 bedrooms
+---
 
-3 bathrooms
+## ⚙️ Performance Operations
 
-2 floors
+- **Cache** the `home_sales` temporary table
+- **Verify** if the table is cached
+- **Rerun** the query from step 4 and compare cached vs. uncached runtime
+- **Partition** the data by `date_built` and save as Parquet files
+- **Create** a new temp table from the Parquet data
+- **Re-run** the average price by view query using partitioned data and compare runtime
+- **Uncache** the `home_sales` temp table
+- **Verify** it has been uncached using PySpark
 
-2,000+ square feet
+---
 
-Group by the year built and round the results to two decimal places.
+## 📤 Final Steps
 
-Average Price by View Rating (Homes ≥ $350,000)
+- Download the completed `Home_Sales.ipynb`
+- Upload it to your GitHub `Home_Sales` repository
 
-Determine the average home price for each view rating where the average price is ≥ $350,000.
+---
 
-Record and round the runtime for this query.
+## 📚 Resources
 
-⚙️ Spark Optimizations and Operations
-Cache the home_sales Temporary Table
-
-Verify the Table is Cached
-
-Run the "Average Price by View Rating" Query Again Using the Cached Table
-
-Measure and compare the runtime to the uncached version.
-
-Partition Data by date_built
-
-Save the formatted home sales data as Parquet files, partitioned by the date_built column.
-
-Create a Temporary Table from the Parquet Data
-
-Re-run the "Average Price by View Rating" Query
-
-Use the partitioned Parquet data, note the runtime, and compare it with previous runs.
-
-Uncache the home_sales Table
-
-Confirm that the Table Has Been Uncached Using PySpark
-
-📤 Final Submission
-Download the completed Home_Sales.ipynb notebook.
-
-Upload it to your Home_Sales GitHub repository.
-
-📚 Support & Resources
-You have access to your instructional team, office hours, learning assistants, and tutors. Make full use of these resources for guidance and collaboration.
-
+- Use class time, office hours, and available tutors for help
+- Collaborate with your partner as needed to complete the challenge
